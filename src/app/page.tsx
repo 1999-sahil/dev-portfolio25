@@ -1,13 +1,12 @@
 import { ModeToggle } from "@/components/mode-toggle";
+import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+
   return (
     <div>
-      <h2 className="font-inter font-bold">Home Page (inter)</h2>
-      <h2 className="font-poppins font-bold">Home Page (poppins)</h2>
-      <h2 className="font-openSans font-bold">Home Page (open_sans)</h2>
-
       <ModeToggle />
+      <Link href="/blogs">Blogs</Link>
     </div>
   );
 }

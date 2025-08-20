@@ -80,12 +80,17 @@
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary-foreground: oklch(68.097% 0.11861 20.598);
   --sidebar-accent: oklch(0.97 0 0);
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  
+  --shadow-navbar: 0px 2px 3px -1px rgba(0, 0, 0, 0.1),
+    0px 1px 0px rgba(25, 28, 33, 0.02), 0px 0px 0px 1px rgba(25, 28, 33, 0.03);
+  --pattern-fg: color-mix(in oklab, var(--color-neutral-950) 5%, transparent);
+  --shadow-card:
+    0px 2px 3px -1px rgba(0, 0, 0, 0.1), 0px 1px 0px 0px rgba(25, 28, 33, 0.02),
+    0px 0px 0px 1px rgba(25, 28, 33, 0.08);
 }
 
 .dark {
@@ -120,6 +125,14 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --shadow-navbar: 0px 2px 3px -1px rgba(0, 0, 0, 0.4),
+    0px 1px 0px rgba(255, 255, 255, 0.05),
+    0px 0px 0px 1px rgba(255, 255, 255, 0.02);
+  --pattern-fg: color-mix(in oklab, var(--color-neutral-100) 5%, transparent);
+  --shadow-card:
+    0px 2px 3px -1px rgba(255, 255, 255, 0.1),
+    0px 1px 0px 0px rgba(195, 211, 236, 0.02),
+    0px 0px 0px 1px rgba(171, 190, 223, 0.08);
 }
 
 @layer base {
@@ -129,4 +142,31 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.shadow-section-inset {
+  --tw-shadow:
+    0px 1px 4px 0px var(--tw-shadow-color, var(--color-neutral-100)) inset,
+    0px -1px 4px 0px var(--tw-shadow-color, var(--color-neutral-100)) inset;
+}
+
+.shadow-section-inset-dark {
+  --tw-shadow:
+    0px 1px 4px 0px var(--tw-shadow-color, var(--color-neutral-950)) inset,
+    0px -1px 4px 0px var(--tw-shadow-color, var(--color-neutral-950)) inset;
+  box-shadow:
+    var(--tw-inset-shadow), var(--tw-inset-ring-shadow),
+    var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+}
+
+/* Syntax Highlighting */
+code[class*="language-"],
+pre[class*="language-"] {
+  background: transparent !important;
+}
+
+.animation-pulse {
+  /*box-shadow: 0 0 0 20px rgba(229,62,62, 0.5);
+    transform: scale(0.8);*/
+  animation: pulse 1s infinite;
 }

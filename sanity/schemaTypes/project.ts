@@ -1,39 +1,68 @@
 /**
- * BLOG SCHEMA WILL HAVE FOLLOWING FIELDS:
- * title, slug, coverImage, shortDescription, content, tags, createdAt, readTime
-*/
+ * PROJECT SCHEMA WILL HAVE FOLLOWING FIELDS:
+ * title, slug, coverImage, shortDescription, content, techStack, createdAt, liveUrl, repoUrl, projectImages, features.
+ */
 
 export default {
-  name: 'blog',
+  name: 'project',
   type: 'document',
-  title: 'Blog',
+  title: 'Project',
   fields: [
     {
       name: 'title',
       type: 'string',
-      title: 'Title of Blog Article',
+      title: 'Title of Project',
     },
     {
       name: 'slug',
       type: 'slug',
-      title: 'Slug of Blog Article',
+      title: 'Slug of Project',
       options: {source: 'title'},
     },
     {
       name: 'coverImage',
       type: 'image',
-      title: 'Cover Image of Blog Article',
+      title: 'Cover Image of Project',
       options: {hotspot: true},
     },
     {
-      name: 'shortDescription',
+      name: 'projectDescription',
       type: 'text',
-      title: 'Short Description of Blog Article',
+      title: 'Short Description of Project',
+    },
+    {
+      name: 'images',
+      title: 'Add Project Images',
+      type: 'array',
+      of: [{type: 'image'}],
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: 'liveUrl',
+      title: 'Live Demo URL',
+      type: 'url',
+    },
+    {
+      name: 'gitRepoUrl',
+      title: 'GitHub Repository URL',
+      type: 'url',
+    },
+    {
+      name: 'features',
+      title: 'Project Features',
+      type: 'array',
+      of: [{type: 'string'}],
+      options: {
+        sortable: true,
+      },
+      description: 'Add key features of the project',
     },
     {
       name: 'content',
       type: 'array',
-      title: 'Content of Blog Article',
+      title: 'Content of Project',
       of: [
         {
           type: 'block',
@@ -60,7 +89,7 @@ export default {
           ],
         },
         {
-          type: 'code',  // ✅ Add code block support
+          type: 'code', // ✅ Add code block support
           title: 'Code Block',
           options: {
             language: 'javascript',
@@ -80,23 +109,18 @@ export default {
       ],
     },
     {
-      name: 'tags',
+      name: 'techStack',
       type: 'array',
-      title: 'Tags related to Blog Article',
+      title: 'Tech Stack used in the Project',
       of: [{type: 'string'}],
       options: {
-        layout: 'tags',
+        layout: 'techStack',
       },
     },
     {
       name: 'createdAt',
       title: 'Created At',
       type: 'datetime',
-    },
-    {
-      name: 'readTime',
-      title: 'Read Time (minutes)',
-      type: 'number',
     },
   ],
 }

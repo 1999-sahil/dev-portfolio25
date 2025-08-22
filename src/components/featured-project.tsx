@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import Error from "./error";
+import { getProjectList } from "@/lib/getProjectList";
+import { ProjectCard } from "@/lib/interface";
+import ProjectUi from "./project-ui";
 
-function FeaturedProject() {
+async function FeaturedProject() {
+  const projectList: ProjectCard[] = await getProjectList();
 
   return (
     <div className="shadow-section-inset dark:shadow-section-inset-dark border-y-2 mt-4 px-4 py-6 border-neutral-200/50 dark:border-neutral-950">
@@ -43,8 +46,19 @@ function FeaturedProject() {
         on:
       </p>
       {/** Projects */}
-      <div>Projects</div>
-      
+      <div>
+        {projectList.map((project) => (
+          <ProjectUi
+            key={project._id}
+            title={project.title}
+            projectDescription={project.projectDescription}
+            slug={project.currentSlug}
+            _createdAt={project._createdAt}
+            techStack={project.techStack || []}
+            coverImage={project.coverImage}
+          />
+        ))}
+      </div>
     </div>
   );
 }

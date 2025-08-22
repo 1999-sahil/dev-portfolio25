@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import Error from "./error";
 
 function FeaturedProject() {
+
   return (
-    <div className="shadow-section-inset dark:shadow-section-inset-dark border-2 mt-4 px-4 py-6 border-neutral-200/50 dark:border-neutral-950">
+    <div className="shadow-section-inset dark:shadow-section-inset-dark border-y-2 mt-4 px-4 py-6 border-neutral-200/50 dark:border-neutral-950">
       <div className="flex items-center justify-between">
         <h2 className="relative mt-4 w-fit max-w-lg text-sm font-poppins font-normal text-neutral-800 md:text-base dark:text-neutral-300">
           <div
@@ -41,6 +42,9 @@ function FeaturedProject() {
         I love building things. Some of the side projects I'm currently worked
         on:
       </p>
+      {/** Projects */}
+      <div>Projects</div>
+      
     </div>
   );
 }

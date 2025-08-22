@@ -7,11 +7,17 @@ export async function getBlogList() {
     shortDescription,
     "currentSlug": slug.current,
     tags,
-    createdAt,
+    _createdAt,
+    _id,
     readTime
     }
   `;
 
-  const data = await client.fetch(query);
-  return data;
+  try {
+    const blogs = await client.fetch(query);
+    return blogs;
+  } catch (error) {
+    console.error("Sanity Fetch Error:", error);
+    return [];
+  }
 }

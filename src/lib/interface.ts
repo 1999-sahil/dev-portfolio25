@@ -1,19 +1,23 @@
+import type { TypedObject } from "@portabletext/types";
+
 export interface BlogCard {
   title: string;
-  slug: string;
+  _id: string;
+  currentSlug: string;
   shortDescription: string;
   tags: string[];
   readTime: number;
-  createdAt: string;
+  _createdAt: string;
 }
 
 export interface Blog {
   title: string;
-  slug: string;
+  _id: string;
+  currentSlug: string;
   shortDescription: string;
   tags: string[];
   readTime: number;
-  createdAt: string;
+  _createdAt: string;
   coverImage: string | any;
-  content: string | any;
+  content: TypedObject[];
 }

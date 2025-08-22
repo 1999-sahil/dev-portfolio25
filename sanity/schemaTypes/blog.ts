@@ -36,10 +36,31 @@ export default {
       title: 'Content of Blog Article',
       of: [
         {
-          type: 'block'
+          type: 'block',
         },
         {
-          type: 'code',
+          type: 'image', // ✅ Add image support
+          title: 'Image',
+          options: {
+            hotspot: true, // Allow cropping & better image focus
+          },
+          fields: [
+            {
+              name: 'alt',
+              type: 'string',
+              title: 'Alt Text',
+              description: 'Describe the image for better SEO & accessibility',
+            },
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Caption',
+              description: 'Optional caption for the image',
+            },
+          ],
+        },
+        {
+          type: 'code',  // ✅ Add code block support
           title: 'Code Block',
           options: {
             language: 'javascript',

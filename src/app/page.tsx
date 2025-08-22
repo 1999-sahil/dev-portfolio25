@@ -1,4 +1,3 @@
-
 import FeaturedBlogs from "@/components/featured-blogs";
 import FeaturedProject from "@/components/featured-project";
 import Introduction from "@/components/introduction";

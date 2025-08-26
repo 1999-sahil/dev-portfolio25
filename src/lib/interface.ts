@@ -44,4 +44,5 @@ export interface Project {
   liveUrl: string;
   gitRepoUrl: string;
   images: string[];
+  features: string[];
 }

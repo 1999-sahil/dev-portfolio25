@@ -9,7 +9,12 @@ export async function getProjectList() {
     techStack,
     _createdAt,
     _id,
-    coverImage
+    coverImage {
+      asset->{
+        _id,
+        url
+      }
+    }
     }
     `;
 
@@ -17,7 +22,7 @@ export async function getProjectList() {
     const projects = await client.fetch(query);
     return projects;
   } catch (error) {
-    console.error("Sanity Fetch Error: ", error);
+    console.error("Sanity ProjectList Fetch Error: ", error);
     return [];
   }
 }

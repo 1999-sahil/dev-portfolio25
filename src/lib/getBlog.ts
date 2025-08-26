@@ -18,7 +18,7 @@ export async function getBlog(slug: string) {
     const blog = await client.fetch(query, { slug });
     return blog || null;
   } catch (error) {
-    console.error("Sanity Fetch Error:", error);
+    console.error("Sanity Blog Fetch Error:", error);
     return [];
   }
 }

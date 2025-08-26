@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import {
   motion,
   useTransform,
@@ -8,7 +9,6 @@ import {
   useMotionValue,
   useSpring,
 } from "framer-motion";
-import Image from "next/image";
 
 interface TooltipItem {
   id: number;

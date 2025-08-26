@@ -1,15 +1,15 @@
-"use client";
-
 import Link from "next/link";
 import { getProjectList } from "@/lib/getProjectList";
 import { ProjectCard } from "@/lib/interface";
 import ProjectUi from "./project-ui";
+import ProjectSkeleton from "./project-skeleton";
 
-async function FeaturedProject() {
+export default async function FeaturedProject() {
   const projectList: ProjectCard[] = await getProjectList();
 
   return (
     <div className="shadow-section-inset dark:shadow-section-inset-dark border-y-2 mt-4 px-4 py-6 border-neutral-200/50 dark:border-neutral-950">
+      {/** Heading */}
       <div className="flex items-center justify-between">
         <h2 className="relative mt-4 w-fit max-w-lg text-sm font-poppins font-normal text-neutral-800 md:text-base dark:text-neutral-300">
           <div
@@ -46,20 +46,23 @@ async function FeaturedProject() {
         on:
       </p>
       {/** Projects */}
-      <div>
-        {projectList.map((project) => (
-          <ProjectUi
-            key={project._id}
-            title={project.title}
-            projectDescription={project.projectDescription}
-            slug={project.currentSlug}
-            _createdAt={project._createdAt}
-            techStack={project.techStack || []}
-            coverImage={project.coverImage}
-          />
-        ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-2 w-full">
+        {projectList.length === 0 ? (
+          Array.from({ length: 3 }).map((_, index) => <ProjectSkeleton key={index} />)
+        ) : (
+          projectList.slice(0, 3).map((project: any) => (
+            <ProjectUi
+              key={project._id}
+              title={project.title}
+              projectDescription={project.projectDescription}
+              slug={project.currentSlug}
+              _createdAt={project._createdAt}
+              techStack={project.techStack || []}
+              coverImage={project.coverImage}
+            />
+          ))
+        )}
       </div>
     </div>
   );
 }
-export default FeaturedProject;

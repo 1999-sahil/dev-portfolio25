@@ -8,7 +8,12 @@ export async function getProject(slug: string) {
     "currentSlug": slug.current,
     techStack,
     _createdAt,
-    coverImage,
+    coverImage {
+      asset->{
+        _id,
+        url
+      }
+    },
       liveUrl,
       gitRepoUrl,
       features,
@@ -21,7 +26,7 @@ export async function getProject(slug: string) {
     const project = await client.fetch(query, { slug });
     return project || null;
   } catch (error) {
-    console.error("Sanity Fetch Error: ", error);
+    console.error("Sanity Project Fetch Error: ", error);
     return [];
   }
 }

@@ -34,13 +34,13 @@ export default function TableOfContents() {
   }, []);
 
   return (
-    <aside className="w-64 sticky top-20 h-fit">
+    <aside className="w-60 sticky top-20 h-fit">
       <h2 className="font-normal font-inter text-sm text-primary dark:text-white mb-4">On this page</h2>
       <ul className="space-y-2.5 text-xs font-inter mb-4">
         {headings.map((heading) => (
           <li
             key={heading.id}
-            className={`ml-${(heading.level - 1) * 4} mr-8 w-fit text-start`}
+            className={`ml-${(heading.level - 1) * 4} w-fit text-start`}
           >
             <a
               href={`#${heading.id}`}

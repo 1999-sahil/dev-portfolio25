@@ -86,7 +86,7 @@ function Navbar() {
       </motion.nav>
 
       {/** Mobile Navigation */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {open && (
           <motion.div
             variants={menuVars}

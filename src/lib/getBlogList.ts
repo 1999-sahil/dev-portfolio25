@@ -17,7 +17,7 @@ export async function getBlogList() {
     const blogs = await client.fetch(query);
     return blogs;
   } catch (error) {
-    console.error("Sanity Fetch Error:", error);
+    console.error("Sanity BlogList Fetch Error:", error);
     return [];
   }
 }

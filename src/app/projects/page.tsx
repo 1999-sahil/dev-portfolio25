@@ -1,7 +1,16 @@
 import React from "react";
+import type { Metadata } from "next";
 import ProjectUi from "@/components/project-ui";
 import { getProjectList } from "@/lib/getProjectList";
 import { ProjectCard } from "@/lib/interface";
+import ProjectSkeleton from "@/components/project-skeleton";
+import Link from "next/link";
+import { Github } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Projects | Sahil Ahmed",
+  description: "Check out my work and portfolio",
+};
 
 async function page() {
   const projectList: ProjectCard[] = await getProjectList();
@@ -37,21 +46,31 @@ async function page() {
         Experimenting with ideas, shaping them into powerful applications.
       </p>
       <p className="mb-4 max-w-lg font-poppins text-sm font-normal text-neutral-500 dark:text-neutral-400">
-        Showcasing my journey through code - a collection of projects built with passion and precision.
+        Showcasing my journey through code - a collection of projects built with
+        passion and precision.
       </p>
-      
-      <div className="flex flex-col gap-5">
-        {projectList.map((project) => (
-          <ProjectUi
-            key={project._id}
-            title={project.title}
-            projectDescription={project.projectDescription}
-            slug={project.currentSlug}
-            _createdAt={project._createdAt}
-            techStack={project.techStack || []}
-            coverImage={project.coverImage}
-          />
-        ))}
+      <Link href="" className="flex items-center gap-1 mb-8 font-inter text-xs bg-primary hover:bg-primary/90 text-primary-foreground w-fit px-3 py-1 rounded-sm font-medium">
+      <Github className="size-3.5" />
+        Github
+      </Link>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-2 lg:px-0 w-full">
+        {projectList.length === 0 ? (
+          Array.from({ length: 9 }).map((_, index) => <ProjectSkeleton key={index} />)
+        ) : (
+          projectList
+            .map((project: any) => (
+              <ProjectUi
+                key={project._id}
+                title={project.title}
+                projectDescription={project.projectDescription}
+                slug={project.currentSlug}
+                _createdAt={project._createdAt}
+                techStack={project.techStack || []}
+                coverImage={project.coverImage}
+              />
+            ))
+        )}
       </div>
     </div>
   );

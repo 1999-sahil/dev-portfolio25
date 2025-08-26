@@ -7,7 +7,7 @@ import Work from "@/components/work";
 export default async function Home() {
 
   return (
-    <div className="relative bg-neutral-50 dark:bg-[#0e100f] w-full h-full">
+    <div className="relative bg-neutral-50 dark:bg-[#0e100f] w-full h-full min-h-screen">
       <Scales />
       <section className="px-2 pt-20 lg:px-8">
         <Introduction />

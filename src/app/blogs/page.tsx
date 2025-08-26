@@ -2,6 +2,12 @@ import React from "react";
 import { getBlogList } from "@/lib/getBlogList";
 import { BlogCard } from "@/lib/interface";
 import BlogUi from "@/components/blog-ui";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blogs | Sahil Ahmed",
+  description: "Check out my technical blogs and tutorials",
+};
 
 async function page() {
   const blogList: BlogCard[] = await getBlogList();

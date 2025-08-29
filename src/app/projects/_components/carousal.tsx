@@ -1,13 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { AnimatePresence, motion, MotionConfig } from "motion/react";
 import { urlFor } from "@/lib/sanity";
 
 interface CarousalProps {
-  images: any[];
+  images: Record<string, unknown>[];
 }
 
 function Carousal({ images }: CarousalProps) {

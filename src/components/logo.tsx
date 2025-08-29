@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 function Logo() {
@@ -6,7 +7,7 @@ function Logo() {
       href="/"
       className="cursor-pointer flex items-center justify-center w-fit ring-1 rounded-full p-[2px] ring-neutral-300 dark:ring-neutral-700 hover:ring-neutral-200 dark:hover:ring-neutral-800"
     >
-      <img
+      <Image
         src="/profile.png"
         alt="logo"
         width={35}

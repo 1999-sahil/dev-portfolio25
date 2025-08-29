@@ -11,7 +11,7 @@ function Error() {
         Oops!
       </h2>
       <p className="text-center font-inter font-normal text-xs lg:text-sm text-primary/50">
-        Something's gone wrong, but don't worry we're trying to fix it.
+        Something&apos;s gone wrong, but don&apos;t worry we&apos;re trying to fix it.
       </p>
       <Loader2 className="size-4 animate-spin text-primary/60" />
     </div>

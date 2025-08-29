@@ -42,7 +42,7 @@ export default async function FeaturedProject() {
         </Link>
       </div>
       <p className="my-4 font-poppins text-sm font-normal text-neutral-500 dark:text-neutral-400">
-        I love building things. Some of the side projects I'm currently worked
+        I love building things. Some of the side projects I&apos;m currently worked
         on:
       </p>
       {/** Projects */}
@@ -50,7 +50,7 @@ export default async function FeaturedProject() {
         {projectList.length === 0 ? (
           Array.from({ length: 3 }).map((_, index) => <ProjectSkeleton key={index} />)
         ) : (
-          projectList.slice(0, 3).map((project: any) => (
+          projectList.slice(0, 3).map((project: ProjectCard) => (
             <ProjectUi
               key={project._id}
               title={project.title}

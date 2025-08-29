@@ -6,6 +6,7 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity";
 import Link from "next/link";
+import { ImageType } from "@/lib/interface";
 
 interface ProjectUiProps {
   title: string;
@@ -13,7 +14,7 @@ interface ProjectUiProps {
   slug: string;
   _createdAt: string;
   techStack: string[];
-  coverImage: string;
+  coverImage: ImageType;
 }
 
 function ProjectUi({
@@ -26,6 +27,12 @@ function ProjectUi({
 }: ProjectUiProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+   // ✅ Safely handle Sanity images or strings
+  const imageUrl =
+    typeof coverImage === "string"
+      ? coverImage
+      : urlFor(coverImage).url();
 
   useEffect(() => {
     // Simulate async work here
@@ -61,7 +68,7 @@ function ProjectUi({
         {coverImage ? (
           <div className="w-full h-full rounded-xl border p-[2px] bg-accent">
             <Image
-              src={urlFor(coverImage).url()}
+              src={imageUrl}
               alt={title}
               loading="lazy"
               unoptimized

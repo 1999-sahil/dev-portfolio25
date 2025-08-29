@@ -7,8 +7,7 @@ import Image from "next/image";
 import { urlFor } from "@/lib/sanity";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { Check, Copy } from "lucide-react";
-import { atomOneDark, monokai } from "react-syntax-highlighter/dist/cjs/styles/hljs";
-import { dracula, oneDark, oneLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { oneDark, oneLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 type CodeBlockProps = {
   code: string;
@@ -17,16 +16,32 @@ type CodeBlockProps = {
   showLineNumbers?: boolean;
 };
 
+interface CodeBlockValue {
+  _type: "code";
+  code: string;
+  language?: string;
+}
+
+interface ImageBlockValue {
+  _type: "image";
+  asset: {
+    _ref: string;
+    _type: string;
+  };
+  alt?: string;
+}
+
+
 // Reusable PortableText component configuration
 export const portableTextRenderer: PortableTextComponents = {
   types: {
     // Handle Sanity "code" blocks
-    code: ({ value }: any) => (
+    code: ({ value }: { value: CodeBlockValue }) => (
       <CodeBlock code={value.code} language={value.language || "javascript"} />
     ),
 
     // Handle Sanity "image" blocks
-    image: ({ value }: any) => (
+    image: ({ value }: { value: ImageBlockValue }) => (
       <div className="my-4 flex justify-center rounded-lg">
         <Image
           src={urlFor(value).url()}

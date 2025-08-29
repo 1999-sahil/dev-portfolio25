@@ -59,7 +59,7 @@ async function page() {
           Array.from({ length: 9 }).map((_, index) => <ProjectSkeleton key={index} />)
         ) : (
           projectList
-            .map((project: any) => (
+            .map((project: ProjectCard) => (
               <ProjectUi
                 key={project._id}
                 title={project.title}

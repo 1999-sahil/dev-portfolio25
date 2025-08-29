@@ -1,5 +1,15 @@
 import type { TypedObject } from "@portabletext/types";
 
+export type ImageType =
+  | {
+      asset?: {
+        _ref?: string;
+        _type?: string;
+        url?: string;
+      };
+    }
+  | string;
+
 export interface BlogCard {
   title: string;
   _id: string;
@@ -18,7 +28,7 @@ export interface Blog {
   tags: string[];
   readTime: number;
   _createdAt: string;
-  coverImage: string | any;
+  coverImage: ImageType;
   content: TypedObject[];
 }
 
@@ -29,7 +39,7 @@ export interface ProjectCard {
   projectDescription: string;
   techStack: string[];
   _createdAt: string;
-  coverImage: string | any;
+  coverImage: ImageType;
 }
 
 export interface Project {
@@ -39,7 +49,7 @@ export interface Project {
   projectDescription: string;
   techStack: string[];
   _createdAt: string;
-  coverImage: string | any;
+  coverImage: ImageType;
   content: TypedObject[];
   liveUrl: string;
   gitRepoUrl: string;

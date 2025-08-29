@@ -4,9 +4,10 @@ import React, { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { AnimatePresence, motion, MotionConfig } from "motion/react";
 import { urlFor } from "@/lib/sanity";
+import { ImageType } from "@/lib/interface";
 
 interface CarousalProps {
-  images: Record<string, unknown>[];
+  images: ImageType[];
 }
 
 function Carousal({ images }: CarousalProps) {

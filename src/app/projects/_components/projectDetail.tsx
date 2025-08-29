@@ -11,6 +11,7 @@ import TableOfContents from "@/components/toc";
 import Link from "next/link";
 import { ArrowLeftIcon, Dot } from "lucide-react";
 import Carousal from "./carousal";
+import { ImageType } from "@/lib/interface";
 
 interface ProjectDetailProps {
   _id: string;
@@ -19,11 +20,11 @@ interface ProjectDetailProps {
   projectDescription: string;
   _createdAt: string;
   content: TypedObject[];
-  coverImage: string;
+  coverImage: ImageType;
   techStack: string[];
   liveUrl: string;
   gitRepoUrl: string;
-  images: string[];
+  images: ImageType[];
   features: string[];
 }
 

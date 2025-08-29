@@ -10,6 +10,7 @@ import { portableTextRenderer } from "@/components/portableTextRenderer";
 import TableOfContents from "@/components/toc";
 import Link from "next/link";
 import { ArrowLeftIcon, Dot } from "lucide-react";
+import { ImageType } from "@/lib/interface";
 
 interface BlogDetailProps {
   _id: string;
@@ -19,7 +20,7 @@ interface BlogDetailProps {
   readTime: number;
   _createdAt: string;
   content: TypedObject[];
-  coverImage: string;
+  coverImage: ImageType;
   tags: string[];
 }
 

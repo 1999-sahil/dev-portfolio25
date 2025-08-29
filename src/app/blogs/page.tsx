@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   description: "Check out my technical blogs and tutorials",
 };
 
+export const revalidate = 30;
+
 async function page() {
   const blogList: BlogCard[] = await getBlogList();
 

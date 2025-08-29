@@ -12,6 +12,8 @@ export const metadata: Metadata = {
   description: "Check out my work and portfolio",
 };
 
+export const revalidate = 30;
+
 async function page() {
   const projectList: ProjectCard[] = await getProjectList();
 

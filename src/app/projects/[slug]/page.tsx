@@ -6,6 +6,8 @@ interface ProjectProps {
   params: Promise<{ slug: string }>;
 }
 
+export const revalidate = 30;
+
 export default async function page({ params }: ProjectProps) {
   const { slug } = await params;
   const project: Project = await getProject(slug);

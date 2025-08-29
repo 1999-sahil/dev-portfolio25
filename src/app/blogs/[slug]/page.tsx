@@ -7,6 +7,8 @@ interface BlogProps {
   params: Promise<{ slug: string }>; // 👈 Make params a Promise now
 }
 
+export const revalidate = 30;
+
 async function page({ params }: BlogProps) {
   const { slug } = await params;
   const blog: Blog = await getBlog(slug);
